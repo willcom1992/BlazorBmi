@@ -1,5 +1,28 @@
-﻿<h3>BmiSimple</h3>
+﻿
+@page "/simple"
+<h3>シンプルな表示</h3>
+<table class="table">
+    <tr>
+        <td>名前</td>
+        <td>@name</td>
+    </tr>
+    <tr>
+        <td>身長</td>
+        <td>@height</td>
+    </tr>
+    <tr>
+        <td>体重</td>
+        <td>@weight</td>
+    </tr>
+</table>
+<div style="font-size: @fontSize">
+    計算結果は @bmi です。
+</div>
 
 @code {
-
+    private string name = "山田太郎";
+    private const double height = 160.0;
+    private const double weight = 50.0;
+    private double bmi = weight / ((height / 100.0) * (height / 100.0));
+    private string fontSize = "32px";
 }
