@@ -1,0 +1,38 @@
+﻿@page "/bmicalc"
+<h3>BMIの計算</h3>
+<table>
+    <tr>
+        <td>名前</td>
+        <td><input @bind-value="bmi.Name" /></td>
+    </tr>
+    <tr>
+        <td>身長</td>
+        <td><input @bind-value="bmi.Height" /></td>
+    </tr>
+    <tr>
+        <td>体重</td>
+        <td><input @bind-value="bmi.Weight" /></td>
+    </tr>
+    <tr>
+        <td>BMI</td>
+        <td>@result.ToString("0.0")</td>
+    </tr>
+</table>
+<button class="btn btn-primary" @onclick="onCalc">計算</button>
+@code {
+    private BmiItem bmi = new BmiItem
+    {
+        Name = "山田太郎",
+        Height = 160.0,
+        Weight = 50.0,
+    };
+
+    // 計算結果
+    private double result {get; set; }
+
+    // BMIの計算
+    private void onCalc()
+    {
+        this.result = bmi.Bmi;
+    }
+}
